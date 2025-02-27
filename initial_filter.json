@@ -1,0 +1,78 @@
+{
+    "filters": [
+      {
+        "name": "Availability",
+        "options": [
+          { "label": "In Stock", "value": "in_stock" },
+          { "label": "Out of Stock", "value": "out_of_stock" }
+        ]
+      },
+      {
+        "name": "Category",
+        "options": [
+          { "label": "Sony Mobiles", "value": "sony_mobiles" },
+          { "label": "CMF by Nothing", "value": "cmf_by_nothing" },
+          { "label": "NFC Mobile Phone in Kuwait", "value": "nfc_kuwait" },
+          { "label": "100 KWD Mobiles in Kuwait", "value": "100_kwd_kuwait" },
+          { "label": "60 KWD Mobiles in Kuwait", "value": "60_kwd_kuwait" },
+          { "label": "Samsung Smartphones", "value": "samsung_smartphones" },
+          { "label": "Apple iPhones", "value": "apple_iphones" },
+          { "label": "Budget Mobiles under 50 KWD", "value": "budget_mobiles_50_kwd" },
+          { "label": "Gaming Phones", "value": "gaming_phones" },
+          { "label": "5G Smartphones", "value": "5g_smartphones" },
+          { "label": "Foldable Phones", "value": "foldable_phones" },
+          { "label": "Flagship Smartphones", "value": "flagship_smartphones" },
+          { "label": "Waterproof Smartphones", "value": "waterproof_smartphones" },
+          { "label": "Mid-Range Mobiles", "value": "midrange_mobiles" },
+          { "label": "Dual SIM Phones", "value": "dual_sim_phones" },
+          { "label": "Android Phones", "value": "android_phones" },
+          { "label": "iOS Devices", "value": "ios_devices" },
+          { "label": "Refurbished Mobiles", "value": "refurbished_mobiles" },
+          { "label": "Affordable Mobiles in Kuwait", "value": "affordable_mobiles_kuwait" },
+          { "label": "Premium Smartphones", "value": "premium_smartphones" }
+        ]
+      },
+      
+      {
+        "name": "RAM",
+        "options": [
+          { "label": "2GB", "value": "2gb" },
+          { "label": "3GB", "value": "3gb" },
+          { "label": "4GB", "value": "4gb" },
+          { "label": "6GB", "value": "6gb" },
+          { "label": "8GB", "value": "8gb" }
+        ]
+      },
+      {
+        "name": "Price",
+        "options": [
+          { "label": "0-1000", "value": "0-1000" },
+          { "label": "1000-2000", "value": "1000-2000" },
+          { "label": "2000-3000", "value": "2000-3000" },
+          { "label": "3000-4000", "value": "3000-4000" },
+          { "label": "4000-5000", "value": "4000-5000" }
+        ]
+      },
+      {
+        "name": "Brand",
+        "options": [
+          { "label": "Apple", "value": "apple" },
+          { "label": "Samsung", "value": "samsung" },
+          { "label": "Huawei", "value": "huawei" },
+          { "label": "Xiaomi", "value": "xiaomi" }
+        ]
+      },
+      {
+        "name": "Storage",
+        "options": [
+          { "label": "32GB", "value": "32gb" },
+          { "label": "64GB", "value": "64gb" },
+          { "label": "128GB", "value": "128gb" },
+          { "label": "256GB", "value": "256gb" },
+          { "label": "512GB", "value": "512gb" }
+        ]
+      }
+     
+    ]
+  }
+  
