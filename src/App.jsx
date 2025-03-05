@@ -11,6 +11,7 @@ import InformedForm from "./components/Informed/Informed";
 import Filter from "./components/FilterUrl/Filter";
 import "./components/Informed/i18n";
 import Map from "./components/map/Map";
+import Installment from "./components/Installment/Installment";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
         <Route path="/informed" element={<InformedForm />} />
         <Route path="/filter" element={<Filter />} />
         <Route path="/map" element={<Map />} />
+        <Route path="/Installment" element={<Installment />} />
+        
+       
       </Routes>
     </BrowserRouter>
   );
