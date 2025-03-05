@@ -13,7 +13,7 @@ const useInstallments = () => {
     const newInstallments = Array.from({ length: installmentCount }, (_, i) => ({
       id: i + 1,
       amount: recommendedAmount / installmentCount || 0,
-      dueDate: "",
+      dueDate:   new Date().toISOString().split("T")[0],
     }));
     setInstallments(newInstallments);
   }, [installmentCount, recommendedAmount]);
