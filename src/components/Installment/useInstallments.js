@@ -13,7 +13,7 @@ const useInstallments = () => {
     const newInstallments = Array.from({ length: installmentCount }, (_, i) => ({
       id: i + 1,
       amount: recommendedAmount / installmentCount || 0,
-      dueDate:   new Date().toISOString().split("T")[0],
+      dueDate:  ''
     }));
     setInstallments(newInstallments);
   }, [installmentCount, recommendedAmount]);
@@ -103,6 +103,9 @@ const useInstallments = () => {
         .concat(restoredInstallment)
         .sort((a, b) => a.id - b.id);
     });
+
+    setSelectedInstallments((prev) => prev.filter((instId) => instId !== id));
+
   };
 
   const splitInstallment = () => {
