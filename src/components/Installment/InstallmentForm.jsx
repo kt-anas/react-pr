@@ -7,6 +7,8 @@ import {
   Row,
   Col,
   Badge,
+  ToastContainer,
+  Toast,
 } from "react-bootstrap";
 import useInstallments from "./useInstallments";
 
@@ -24,13 +26,23 @@ const Installment = () => {
     undoSpecificMerge,
     splitInstallment,
     undoSplitInstallment,
+    setShowToast,
+    toastMessage,
+    showToast,
+    showToastMessage,
   } = useInstallments();
-
-  console.log('Installments:', installments);
-  
 
   return (
     <Container className="mt-4">
+      <ToastContainer position="top-end" className="p-3">
+        <Toast
+          show={showToast}
+          onClose={() => setShowToast(false)}
+          bg="warning"
+        >
+          <Toast.Body>{toastMessage}</Toast.Body>
+        </Toast>
+      </ToastContainer>
       <h4 className="mb-3">Installment Plan</h4>
 
       <Form>
@@ -73,9 +85,16 @@ const Installment = () => {
               <td>
                 <Form.Check
                   type="checkbox"
-                  disabled={inst.mergedFrom}
+                  disabled={inst.mergedFrom || inst.splitFrom}
                   checked={selectedInstallments.includes(inst.id)}
-                  onChange={() => toggleInstallment(inst.id)}
+                  onChange={(e) => {
+                    if (!inst.dueDate) {
+                      showToastMessage("You must select a date first.");
+                      e.preventDefault();  
+                      return;
+                    }
+                    toggleInstallment(inst.id);
+                  }}
                 />
               </td>
               <td>
@@ -143,7 +162,7 @@ const Installment = () => {
           <Button
             variant="warning"
             className="w-100"
-            onClick={splitInstallment} 
+            onClick={splitInstallment}
             disabled={selectedInstallments.length !== 1}
           >
             Split

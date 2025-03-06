@@ -12,6 +12,7 @@ import Filter from "./components/FilterUrl/Filter";
 import "./components/Informed/i18n";
 import Map from "./components/map/Map";
 import Installment from "./components/Installment/Installment";
+import DynamicForm from "./components/dynamicFields/DynamicForm";
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
         <Route path="/filter" element={<Filter />} />
         <Route path="/map" element={<Map />} />
         <Route path="/Installment" element={<Installment />} />
+        <Route path="/dynamicform" element={<DynamicForm />} />
+
         
        
       </Routes>
