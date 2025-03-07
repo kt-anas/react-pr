@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useField } from "informed";
 import { FormGroup, FormLabel, FormControl, Image } from "react-bootstrap";
+ 
 
 const MAX_FILE_SIZE = 3 * 1024 * 1024; 
 
-const FileUploadField = ({ label, accept, required, ...props }) => {
+const FileUploadField = ({ label, accept, required, inputRef,onReset, ...props }) => {
   const validate = (value) => {
     if (!value) return required ? "This field is required" : undefined;
     if (value.size > MAX_FILE_SIZE) return "File size must be less than 3MB";
@@ -53,6 +54,22 @@ const FileUploadField = ({ label, accept, required, ...props }) => {
     }
   };
 
+
+  const resetFile = () => {
+    fieldApi.setValue(undefined);
+    setPreview(null);
+    setFileInfo(null);
+    setFileURL(null);
+
+    if (inputRef?.current) {
+      inputRef.current.value = "";
+    }
+  };
+
+  useEffect(() => {
+      onReset(resetFile);
+  }, [onReset])
+
   return render(
     <FormGroup className="mb-3">
       <FormLabel className="fw-bold">
@@ -62,6 +79,7 @@ const FileUploadField = ({ label, accept, required, ...props }) => {
         type="file"
         accept={accept}
         onChange={handleChange}
+        ref={inputRef}  
         isInvalid={!!fieldState.error}
       />
 

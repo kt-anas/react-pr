@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-// Country options with codes
+ 
 const countryData = [
   { label: "India", value: "in", code: "+91" },
   { label: "USA", value: "us", code: "+1" },
@@ -9,17 +9,16 @@ const countryData = [
 ];
 
 export const usePhoneWithCountryCode = () => {
-  const [selectedCountry, setSelectedCountry] = useState("in"); // Default: India
-  const [phone, setPhone] = useState("+91"); // Default: India code
+  const [selectedCountry, setSelectedCountry] = useState("in");  
+  const [phone, setPhone] = useState("+91");  
 
-  // Handle country selection (updates phone code)
   const handleCountryChange = (e) => {
     const newCountry = e.target.value;
     const countryInfo = countryData.find((c) => c.value === newCountry);
 
     if (countryInfo) {
       setSelectedCountry(newCountry);
-      setPhone(countryInfo.code); // Set phone code based on selected country
+      setPhone(countryInfo.code); 
     }
   };
 
@@ -27,11 +26,10 @@ export const usePhoneWithCountryCode = () => {
     let input = e.target.value;
     setPhone(input);
 
-    // Check if input starts with a known country code
     const matchedCountry = countryData.find((c) => input.startsWith(c.code));
 
-    if (matchedCountry) {
-      setSelectedCountry(matchedCountry.value); // Auto-select country
+    if (matchedCountry) { 
+         setSelectedCountry(matchedCountry.value);  
     }
   };
 

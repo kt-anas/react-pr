@@ -17,19 +17,28 @@ import {
 } from "./validations";
 
 const DynamicForm = () => {
-     const formApiRef = useRef();
+  const formApiRef = useRef();
+  const fileInputRef = useRef();
+  const fileResetRef = useRef(null); 
 
-    const handleSubmit = ({ values }) => {
-        console.log("Submitted Values:", values);
-        formApiRef.current.reset();
-         
-      };
+  const handleSubmit = ({ values }) => {
+    console.log("Submitted Values:", values);
+    formApiRef.current.reset();
+
+    if (fileResetRef.current) {
+      fileResetRef.current();  
+    }
+  };
 
   return (
     <Container className="mt-4">
       <Card className="p-4">
-        <Form onSubmit={handleSubmit} formApiRef={formApiRef} focusOnInvalid={true}>
-        <Row className="gy-2">
+        <Form
+          onSubmit={handleSubmit}
+          formApiRef={formApiRef}
+          focusOnInvalid={true}
+        >
+          <Row className="gy-2">
             <Col md={6}>
               <CustomInput
                 id="name"
@@ -108,8 +117,10 @@ const DynamicForm = () => {
             id="resume"
             label="Upload Resume"
             name="resume"
-            accept=".pdf,.doc,.docx,.jpg,.png"
+            accept=".pdf,.jpg,.png"
             required
+            inputRef={fileInputRef}
+            onReset={(resetFunc) => (fileResetRef.current = resetFunc)}
           />
 
           <CheckboxField

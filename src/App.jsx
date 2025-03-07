@@ -13,6 +13,7 @@ import "./components/Informed/i18n";
 import Map from "./components/map/Map";
 import Installment from "./components/Installment/Installment";
 import DynamicForm from "./components/dynamicFields/DynamicForm";
+import InstallmentPage from "./components/newInstallment/InstallmentPage";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/map" element={<Map />} />
         <Route path="/Installment" element={<Installment />} />
         <Route path="/dynamicform" element={<DynamicForm />} />
+        <Route path="/newInstallment" element={<InstallmentPage />} />
 
         
        
