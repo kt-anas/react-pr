@@ -28,36 +28,12 @@ const useInstallments = () => {
     setTimeout(() => setShowToast(false), 3000);
   };
 
-  const autoFillDates = () => {
-    const firstDate = installments[0]?.dueDate;
-    if (!firstDate) {
-      showToastMessage("Please select a date for the first installment.");
-      return;
-    }
-
-    setInstallments((prev) => {
-      const selectedDate = new Date(firstDate);
-
-      const newDates = Array(installmentCount)
-        .fill("")
-        .map((_, i) => {
-          const newDate = new Date(selectedDate);
-          newDate.setMonth(selectedDate.getMonth() + i);
-          return newDate.toISOString().split("T")[0];
-        });
-
-      return prev.map((inst, i) => ({
-        ...inst,
-        dueDate: newDates[i],
-      }));
-    });
-  };
+ 
 
   const handleDateChange = (id, date) => {
     setInstallments((prev) => {
       const updatedInstallments = [...prev];
       const index = prev.findIndex((inst) => inst.id === id);
-
       const selectedDate = new Date(date);
 
       if (index === -1) return prev;
@@ -113,6 +89,8 @@ const useInstallments = () => {
       return updatedInstallments;
     });
   };
+
+
 
   const toggleInstallment = (id) => {
     setSelectedInstallments((prev) =>
