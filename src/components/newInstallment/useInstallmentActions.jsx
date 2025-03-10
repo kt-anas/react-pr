@@ -18,7 +18,6 @@ const useInstallmentActions = (installments, setInstallments) => {
 
  
   const handleAutoFill = () => {
-       
       if (!installments[0].dueDate) {
           showError("Please select first installment date.");
           return;

@@ -5,7 +5,7 @@ import useInstallmentActions from "./useInstallmentActions";
 import { Toast, ToastContainer } from "react-bootstrap";
 
 const InstallmentPage = () => {
-  const { total, setTotal, count, setCount, installments, setInstallments } =
+  const { total,handleTotalChange, count,handleCountChange, installments, setInstallments } =
     useInstallments("", "");
 
   const { handleSplit, handleMerge, showToast, toastMessage, setShowToast } =
@@ -18,7 +18,7 @@ const InstallmentPage = () => {
         <input
           type="number"
           name="total"
-          onChange={(e) => setTotal(e.target.value)}
+          onChange={(e) => handleTotalChange(e.target.value)}
           value={total}
         />
 
@@ -26,7 +26,7 @@ const InstallmentPage = () => {
         <input
           type="number"
           name="count"
-          onChange={(e) => setCount(e.target.value)}
+          onChange={(e) =>  handleCountChange(e.target.value)}
           value={count}
         />
       </form>

@@ -3,10 +3,8 @@ import { Table } from "react-bootstrap";
 import useInstallmentActions from "./useInstallmentActions";
 
 const TableIn = ({ installments, setInstallments }) => {
-  const { handleUndo, onCheckboxChange, onDateChange, handleAutoFill } = useInstallmentActions(
-    installments,
-    setInstallments
-  );
+  const { handleUndo, onCheckboxChange, onDateChange, handleAutoFill } =
+    useInstallmentActions(installments, setInstallments);
 
   console.log(installments);
 
@@ -18,9 +16,12 @@ const TableIn = ({ installments, setInstallments }) => {
             <th>Select</th>
             <th>Installment No</th>
             <th>Amount</th>
-            <th>Due Date  <span onClick={handleAutoFill} style={{ cursor: "pointer" }}> 
-            ⬇️
-            </span></th>
+            <th>
+              Due Date{" "}
+              <span onClick={handleAutoFill} style={{ cursor: "pointer" }}>
+                ⬇️
+              </span>
+            </th>
           </tr>
         </thead>
         <tbody>

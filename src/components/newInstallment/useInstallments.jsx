@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const useInstallments = (initialTotal, initialCount) => {
   const [total, setTotal] = useState(initialTotal);
   const [count, setCount] = useState(initialCount);
   const [installments, setInstallments] = useState([]);
 
-  useEffect(() => {
-    if (total > 0 && count > 0) {
-      const newInstallments = Array.from({ length: count }, (_, index) => ({
+  const updateInstallments = (newTotal, newCount) => {
+    if (newTotal > 0 && newCount > 0) {
+      const newInstallments = Array.from({ length: newCount }, (_, index) => ({
         id: index + 1,
         insNumber: index + 1,
         checked: false,
-        amount: Math.floor(total / count).toFixed(2),
+        amount: Math.floor(newTotal / newCount).toFixed(2),
         dueDate: "",
         show: true,
       }));
@@ -19,9 +19,26 @@ const useInstallments = (initialTotal, initialCount) => {
     } else {
       setInstallments([]);
     }
-  }, [total, count]);
+  };
 
-  return { total, setTotal, count, setCount, installments, setInstallments };
+  const handleTotalChange = (value) => {
+    setTotal(value);
+    updateInstallments(value, count);
+  };
+
+  const handleCountChange = (value) => {
+    setCount(value);
+    updateInstallments(total, value);
+  };
+
+  return {
+    total,
+     handleTotalChange,
+    count,
+    handleCountChange,
+    installments,
+    setInstallments,
+  };
 };
 
 export default useInstallments;
